@@ -1,7 +1,7 @@
 // packages import
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-
+const mongoose = require('./config/mongoose');
 
 // port
 const port = 8000;
