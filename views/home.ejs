@@ -1,10 +1,51 @@
 
 <link rel="stylesheet" href="css/home.css" type="text/css">
 <main>
-    <section>
-        Add Task SECTION
+    <section id="add-task">
+        <h1>Add Task Section</h1>
+        <form method="POST" , action="/tasks/create-task">
+            <label for="description">Description</label>
+            <input id="description" type="text" name="description" placeholder="description" required>
+            <label for="date">Due date</label>
+            <input id="date" type="date" name="due_date" required>
+            <label for="type">Type</label>
+            <select id="type" name="category">
+                <option value="personal" selected>Personal</option>
+                <option value="work">Work</option>
+                <option value="school">School</option>
+                <option value="cleaning">Cleaning</option>
+                <option value="other">Other</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
     </section>
-    <section>
+    <!-- TASKS LIST SECTION -->
+    <section id="task-list">
         ALL TASKS SECTION
+
+
+        <div>
+
+            <ul>
+                <% for(let task of tasks){ %>
+
+                    <li>
+                        <p>
+                            <%= task.description %>
+                        </p>
+                        <p>
+                            <%= (task.due_date.getDate()+"/"+task.due_date.getMonth()+"/"+task.due_date.getFullYear()) %>
+                        </p>
+                        <p>
+                            <%= task.category %>
+                        </p>
+
+                        <a href="/tasks/delete-task/?id=<%= task._id %>">Delete Task</a>
+                        
+                    </li>
+                    
+                <% } %>
+            </ul>
+        </div>
     </section>
 </main>

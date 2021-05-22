@@ -1,9 +1,10 @@
 const express = require('express');
+const taskController = require('../controllers/tasks_controller')
 
 const router = express.Router();
 
-router.get('/' , function(req,res){
-    return res.send("Create Tasks Page")
-});
+router.post('/create-task' , taskController.createTask);
+router.get('/delete-task' , taskController.deleteTask);
+
 
 module.exports =  router

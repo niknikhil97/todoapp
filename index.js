@@ -9,6 +9,7 @@ const port = 8000;
 
 // initializing app
 const app = express();
+app.use(express.urlencoded());
 app.use(expressLayouts);
 app.use(express.static('assets'));
 

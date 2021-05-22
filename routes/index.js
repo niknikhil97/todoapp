@@ -6,6 +6,6 @@ const router = express.Router();
 
 
 router.get('/', homeController.home)
-router.use('/create-contact' , require('./tasks'));
+router.use('/tasks' , require('./tasks'));
 
 module.exports  = router
