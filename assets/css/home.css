@@ -9,9 +9,26 @@
     --color-dark-secondary: rgb(0, 47, 39);
 }
 
+/* THEME */
+.dark {
+    --dark-primary: white;
+    --dark-secondary: #f3f3f3;
+    --light-primary: black;
+    --light-secondary: #333;
+    --color-light-primary: rgb(255, 145, 55);
+    --color-light-secondary: rgb(129, 255, 215);
+    --color-dark-primary: rgb(65, 16, 118);
+    --color-dark-secondary: rgb(0, 47, 39);
+}
+
 /* general styling */
+body {
+    background-color: var(--light-secondary);
+}
+
 main {
     padding: 3rem 1rem;
+    padding-top: 6rem;
 }
 
 section {
@@ -51,6 +68,7 @@ a:hover {
     border: none;
     color: var(--dark-secondary);
     font-weight: bold;
+    background-color: var(--light-primary);
 }
 input::-webkit-input-placeholder {
     color: var(--dark-secondary);
@@ -65,7 +83,7 @@ input::-webkit-input-placeholder {
 }
 #add-task .input-div label {
     position: absolute;
-    color: black;
+    color: var(--dark-primary);
     font-size: 0.8rem;
     left: 1rem;
     top: 0.3rem;
@@ -83,6 +101,23 @@ input::-webkit-input-placeholder {
 #add-task .input-small-container .input-div {
     width: 50%;
 }
+#add-task .buttons-div {
+    display: flex;
+    justify-content: space-between;
+}
+#add-task button {
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    background-color: var(--color-dark-primary);
+    color: white;
+    font-size: 1rem;
+    width: 40%;
+}
+
+#add-task button:nth-child(2) {
+    background-color: red;
+}
 
 /* Tasks List style */
 #task-list li {
@@ -92,6 +127,7 @@ input::-webkit-input-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    color: var(--dark-primary);
 }
 #task-list li .task-description {
     width: 60%;
@@ -138,20 +174,16 @@ input::-webkit-input-placeholder {
     background-color: rgb(74, 0, 67);
 }
 
-#add-task .buttons-div {
-    display: flex;
-    justify-content: space-between;
-}
-#add-task button {
-    width: 10rem;
-    height: 2rem;
-    border: none;
-    background-color: var(--color-dark-primary);
-    color: white;
-    font-size: 1rem;
-    width: 40%;
-}
+@media screen and (max-width: 600px) {
+    #add-task .input-small-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #add-task .input-small-container .input-div:nth-child(1) {
+        border-right: none;
+    }
 
-#add-task button:nth-child(2) {
-    background-color: red;
+    #add-task .input-small-container .input-div {
+        width: 100%;
+    }
 }

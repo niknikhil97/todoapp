@@ -29,6 +29,7 @@ module.exports.createTask = function(req,res){
 // action to delete a specific task in the database by comparing with _id field
 module.exports.deleteTask = function(req,res){
     let id = req.query.id;
+    
 
     // find the task in the database using id and delete it
     Task.findByIdAndDelete(id , function(error){
@@ -47,7 +48,9 @@ module.exports.deleteTasks = function(req,res){
     
     // get the value of the key if ids of tasks
     const ids = req.body["delete-task"];
-
+    if (!ids){
+        return res.redirect('back');
+    }
     // if the type of value is a string
     if(typeof(ids)==="string"){
         // delete only one task and not iterate over it

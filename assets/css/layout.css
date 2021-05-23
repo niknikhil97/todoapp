@@ -3,16 +3,38 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    transition: 0.1s ease-in-out;
 }
 header {
-    background-color: black;
+    background-color: rgb(66, 0, 0);
     color: white;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
+    text-align: center;
+    padding: 0.5rem;
 }
+header #theme-div {
+    display: flex;
+    justify-content: center;
+}
+header #theme-div select {
+    background-color: rgb(66, 0, 0);
+    color: white;
+    border: none;
+    padding-left: 0.5rem;
+}
+header #theme-div select option {
+    background-color: antiquewhite;
+    color: black;
+}
+header #theme-div select:focus {
+    outline: none;
+    border-bottom: 0.01rem black solid;
+}
+
 footer {
     background-color: brown;
     color: white;
@@ -21,4 +43,18 @@ footer {
     left: 0;
     width: 100%;
     z-index: 100;
+    text-align: center;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer #developer-name {
+    color: red;
+}
+footer #developer-name:hover {
+    transform: scale(1.2);
+    /* position: relative; */
+    display: inline-block;
 }
