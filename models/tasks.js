@@ -1,5 +1,7 @@
+// importing mongoose (same instance as in index.js)
 const mongoose = require('mongoose');
 
+// schema for storing tasks
 const taskSchema = new mongoose.Schema({
     description: {
         type:String,
@@ -7,7 +9,7 @@ const taskSchema = new mongoose.Schema({
     },
     category:{
         type:String,
-        enum:["personal","work","school","other"],
+        enum:["personal","work","school","cleaning","other"],
         required:true
     },
     due_date:{
@@ -16,6 +18,7 @@ const taskSchema = new mongoose.Schema({
     }
 })
 
+// naming the defines models as Task
 const Task = mongoose.model('Task' , taskSchema);
 
 module.exports = Task;

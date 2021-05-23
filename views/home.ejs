@@ -1,51 +1,72 @@
 
 <link rel="stylesheet" href="css/home.css" type="text/css">
-<main>
+<main id="light">
+
+
     <section id="add-task">
-        <h1>Add Task Section</h1>
+
+
+        
+        
         <form method="POST" , action="/tasks/create-task">
-            <label for="description">Description</label>
-            <input id="description" type="text" name="description" placeholder="description" required>
-            <label for="date">Due date</label>
-            <input id="date" type="date" name="due_date" required>
-            <label for="type">Type</label>
-            <select id="type" name="category">
-                <option value="personal" selected>Personal</option>
-                <option value="work">Work</option>
-                <option value="school">School</option>
-                <option value="cleaning">Cleaning</option>
-                <option value="other">Other</option>
-            </select>
-            <button type="submit">Add Task</button>
+
+            <div class="input-div">
+                <label for="description">description</label>
+                <input id="description" type="text" name="description" placeholder="description" required>
+            </div>
+
+
+            <div class="input-small-container">
+                    <div class="input-div">
+                        <label for="due-date">due date</label>
+                        <input id="date" type="date" name="due_date" required>
+                    </div>
+                    <div class="input-div">
+                        <label for="category">category</label>
+                        <select id="type" name="category">
+                            <option value="personal" selected>Personal</option>
+                            <option value="work">Work</option>
+                            <option value="school">School</option>
+                            <option value="cleaning">Cleaning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+
+
+            </div>
+            <div class="buttons-div">
+                <button type="submit">Add Task</button>
+                <button type="submit" form="tasks-form">DELETE</button>
+            </div>
         </form>
     </section>
+
+
     <!-- TASKS LIST SECTION -->
     <section id="task-list">
-        ALL TASKS SECTION
-
-
-        <div>
-
+        <form method="POST" id="tasks-form" action="/tasks/delete-tasks">
+            
             <ul>
                 <% for(let task of tasks){ %>
-
+    
                     <li>
-                        <p>
-                            <%= task.description %>
-                        </p>
-                        <p>
-                            <%= (task.due_date.getDate()+"/"+task.due_date.getMonth()+"/"+task.due_date.getFullYear()) %>
-                        </p>
-                        <p>
-                            <%= task.category %>
-                        </p>
-
-                        <a href="/tasks/delete-task/?id=<%= task._id %>">Delete Task</a>
-                        
+                        <input type="checkbox" name="delete-task" value="<%= task._id %>">
+                        <div class="task-description">
+                            <p><%= task.description %></p>
+                            <p>
+                                <i class="fas fa-calendar-day"></i>
+                                <%= `${task.due_date.toLocaleString('default' , {month:'long'})} ${task.due_date.getDate()} ${task.due_date.getFullYear()}`  %>
+                            </p>
+                        </div>
+                        <a href="/tasks/delete-task/?id=<%= task._id %>">DELETE</a>
+                        <p class="<%= task.category %>"><%= task.category %></p>
                     </li>
                     
                 <% } %>
             </ul>
-        </div>
+            
+        </form>
+    
     </section>
 </main>
