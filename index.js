@@ -1,6 +1,8 @@
 // packages import
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+
+// mongoose config file (to connect to mongoose server) 
 const mongoose = require('./config/mongoose');
 
 // port
@@ -16,6 +18,8 @@ app.use(express.static('assets'));
 // setting properties
 app.set('views' , './views');
 app.set('view engine', 'ejs');
+
+// for links and scripts 
 app.set("layout extractStyles",true);
 app.set("layout extractScripts",true);
 

@@ -6,6 +6,8 @@ const db = mongoose.connection;
 
 db.on('error' , console.error.bind(console , "Error connecting to MongoDB server"));
 
+
+// success
 db.once('open' , function(){
     console.log("Succesfully connected to MongoDB server");
 })

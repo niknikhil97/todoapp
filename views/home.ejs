@@ -5,9 +5,7 @@
     <!-- Add Task Section -->
     <section id="add-task">
 
-
-        
-        
+        <!-- FORM TO ADD TASK -->
         <form method="POST" , action="/tasks/create-task">
 
             <div class="input-div">
@@ -19,7 +17,7 @@
             <div class="input-small-container">
                     <div class="input-div">
                         <label for="due-date">due date</label>
-                        <input id="date" type="date" name="due_date" required>
+                        <input id="date" min="2021-01-01" max="3000-12-31" type="date" name="due_date" required>
                     </div>
                     <div class="input-div">
                         <label for="category">category</label>
@@ -35,10 +33,17 @@
 
 
             </div>
+            <hr>
+            <br>
+            <!-- Buttons under the fill section -->
             <div class="buttons-div">
                 <button type="submit">Add Task</button>
+                
+                <!-- for form with id="task-form" -->
                 <button type="submit" form="tasks-form">DELETE</button>
             </div>
+            <br>
+            <hr>
         </form>
     </section>
 
@@ -70,5 +75,6 @@
     
     </section>
 
+    <!-- script -->
     <script src="/js/home.js"></script>
 </main>

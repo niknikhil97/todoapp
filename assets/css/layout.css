@@ -1,3 +1,4 @@
+/* changing defaults */
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +6,10 @@
     font-family: sans-serif;
     transition: 0.1s ease-in-out;
 }
+
+/* Header styling */
 header {
-    background-color: rgb(66, 0, 0);
+    background-color: black;
     color: white;
     position: fixed;
     top: 0;
@@ -21,7 +24,7 @@ header #theme-div {
     justify-content: center;
 }
 header #theme-div select {
-    background-color: rgb(66, 0, 0);
+    background-color: black;
     color: white;
     border: none;
     padding-left: 0.5rem;
@@ -35,8 +38,9 @@ header #theme-div select:focus {
     border-bottom: 0.01rem black solid;
 }
 
+/* Footer styling */
 footer {
-    background-color: brown;
+    background-color: black;
     color: white;
     position: fixed;
     bottom: 0;
@@ -55,6 +59,5 @@ footer #developer-name {
 }
 footer #developer-name:hover {
     transform: scale(1.2);
-    /* position: relative; */
     display: inline-block;
 }

@@ -1,4 +1,5 @@
 :root {
+    /* used inside main only (not in header or footer) */
     --dark-primary: black;
     --dark-secondary: #333;
     --light-primary: white;
@@ -174,6 +175,7 @@ input::-webkit-input-placeholder {
     background-color: rgb(74, 0, 67);
 }
 
+/* smaller screens */
 @media screen and (max-width: 600px) {
     #add-task .input-small-container {
         display: flex;
@@ -185,5 +187,17 @@ input::-webkit-input-placeholder {
 
     #add-task .input-small-container .input-div {
         width: 100%;
+    }
+
+    /*  */
+
+    main {
+        padding: 3rem 0;
+        padding-top: 6rem;
+    }
+
+    section {
+        margin: 0.5rem;
+        margin-top: 1rem;
     }
 }

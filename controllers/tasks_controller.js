@@ -1,5 +1,4 @@
-// 
-const { findById, findByIdAndDelete } = require('../models/tasks');
+// model import
 const Task = require('../models/tasks');
 
 

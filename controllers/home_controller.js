@@ -1,6 +1,9 @@
+// model import
 const Task = require('../models/tasks');
 
 module.exports.home = function(req,res){
+    
+    // get all tasks and add in the context
     Task.find({} , function(err , tasks){
         if(err){
             console.log("Error fetching Tasks from DB");
@@ -13,6 +16,7 @@ module.exports.home = function(req,res){
                 res.render('home');
             }
 
+            // render homepage with the tasks(sorted by date)
             res.render('home' , {tasks:sortedTasks});
         })
     })
