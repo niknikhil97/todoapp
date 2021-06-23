@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-
-const mongooseLink =
-  "mongodb+srv://MainUser:Parker@cluster0.ongcz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const { mongoURI } = require("../environment");
 
 mongoose
-  .connect(mongooseLink, {
+  .connect(mongoURI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
